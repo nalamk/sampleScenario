@@ -10,7 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add services to the container.
-builder.Services.AddSingleton<MyImplementation>();
+builder.Services.AddSingleton<Interface1, MyImplementation>();
+builder.Services.AddSingleton<Interface2, MyImplementation>();
 
 var app = builder.Build();
 

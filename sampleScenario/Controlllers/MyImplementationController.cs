@@ -8,19 +8,21 @@ namespace sampleScenario.Controlllers
     [ApiController]
     public class MyImplementationController : ControllerBase
     {
-        private readonly MyImplementation _myImplementation;
+        private readonly Interface1 _myInterface1;
+        private readonly Interface2 _myInterface2;
 
-        public MyImplementationController(MyImplementation myImplementation)
+        public MyImplementationController(Interface1 myInterface1, Interface2 myInterface2)
         {
-            _myImplementation = myImplementation;
+            _myInterface1 = myInterface1;
+            _myInterface2 = myInterface2;
         }
 
         [HttpGet(Name = "GetMyImplementation")]
         public IActionResult Get()
         {
             // Use methods or properties of MyImplementation directly
-            var username = _myImplementation.GetUserName();
-            var address = _myImplementation.GetAddress();
+            var username = _myInterface1.GetUserName();
+            var address = _myInterface2.GetAddress();
 
             // ...
 
